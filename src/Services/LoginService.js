@@ -1,7 +1,7 @@
 import ILoginService from "@/Services/Interfaces/ILoginService";
 import AxiosManager from "@/Utils/AxiosManager";
 import AppEndpoints from "@/Utils/AppEndpoints";
-
+import ServiceResponse from "@/Core/ServiceResponse";
 
 export class LoginService extends ILoginService {
 
@@ -10,27 +10,18 @@ export class LoginService extends ILoginService {
     }
 
 
-     async login(email, password) {
+    async login(email, password) {
         try {
-            AxiosManager.post(AppEndpoints.LOGIN_URL, {
+            const response = await AxiosManager.post(AppEndpoints.LOGIN_URL, {
                 "email": email,
                 "password": password
-            }).then(response => {
-                return  {
-                    "status": response.status,
-                    "data": response.data
-                }
-            }).catch(error => {
-                return {
-                    "status": error.response.status,
-                    "data": error.response.data
-                }
             });
-        } catch (error) {
-            return {
-                "status": error.response.status,
-                "data": error.response.data
+            if (response.status === 200) {
+                return new ServiceResponse(true, "Success", response.data, response.status);
             }
+            return new ServiceResponse(false, "Error", response.data, response.status);
+        } catch (error) {
+            return new ServiceResponse(false, "Error", error.response.data, error.response.status);
         }
     }
 }

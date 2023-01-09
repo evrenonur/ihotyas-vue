@@ -45,9 +45,12 @@ export default {
   password: "",
   methods: {
      login() {
-      const loginService = new LoginService();
-      const response = loginService.login(this.email, this.password);
-      console.log(response.status);
+      new LoginService().login(this.email, this.password).then((response) => {
+        console.log(response.isSuccess);
+      }).catch((error) => {
+        console.log(error);
+      })
+
     }
   },
   data() {

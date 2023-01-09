@@ -6,19 +6,27 @@ class ServiceResponse {
         data,
         statusCode
     ) {
-        this.isSuccess = isSuccess;
-        this.message = message;
-        this.data = data;
-        this.statusCode = statusCode;
+        this._isSuccess = isSuccess;
+        this._message = message;
+        this._data = data;
+        this._statusCode = statusCode;
     }
 
-     getReponse() {
-        return {
-            isSuccess: this.isSuccess,
-            message: this.message,
-            data: this.data,
-            statusCode: this.statusCode
-        }
+
+    get isSuccess() {
+        return this._isSuccess;
+    }
+
+    get message() {
+        return this._message;
+    }
+
+    get data() {
+        return this._data;
+    }
+
+    get statusCode() {
+        return this._statusCode;
     }
 }
 
