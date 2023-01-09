@@ -7,21 +7,19 @@
             <div class="text-center">
               <h3 class="text-primary">Giriş Yap</h3>
             </div>
-            <form action="">
+            <form>
               <div class="p-4">
                 <div class="input-group mb-3">
-                                    <span class="input-group-text bg-primary"><i
-                                        class="bi bi-person-plus-fill text-white"></i></span>
-                  <input type="text" class="form-control" placeholder="E-Posta Adresi">
+                  <span class="input-group-text bg-primary"><i class="bi bi-person-plus-fill text-white"></i></span>
+                  <input type="text" class="form-control" placeholder="E-Posta Adresi" v-model="email">
                 </div>
-                <div class="input-group mb-3">
-                                    <span class="input-group-text bg-primary"><i
-                                        class="bi bi-key-fill text-white"></i></span>
-                  <input type="password" class="form-control" placeholder="Şifre">
+                <div class="input-group mb-3"><span class="input-group-text bg-primary"><i
+                    class="bi bi-key-fill text-white"></i></span>
+                  <input type="password" class="form-control" placeholder="Şifre" v-model="password">
                 </div>
 
                 <div class="d-flex justify-content-center">
-                  <button class="btn btn-primary">Giriş Yap</button>
+                  <button class="btn btn-primary" @click.prevent="login">Giriş Yap</button>
                 </div>
                 <p class="text-center mt-5">Bir Hesabın Yokmu?
                   <span class="text-primary">Kayıt Ol</span>
@@ -36,9 +34,29 @@
   </div>
 </template>
 <script>
+
+
+import LoginService from "@/Services/LoginService";
+
 export default {
-  name: "LoginView"
+  name: "LoginView",
+  email: "",
+  password: "",
+  methods:{
+    login(){
+      LoginService.login(this.email, this.password)
+    }
+  },
+  data() {
+    return {
+      email: "",
+      password: "",
+    };
+
+  },
+
+
+
+
 }
 </script>
-<style scoped>
-</style>
