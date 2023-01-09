@@ -3,11 +3,10 @@ import AppEndpoint from './AppEndpoints';
 
 const AxiosManager = axios.create({
     baseURL: AppEndpoint.API_URL,
-       timeout: 100,
+    timeout: 100,
     headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-
     },
 });
 
@@ -19,7 +18,7 @@ AxiosManager.interceptors.request.use(
 
 AxiosManager.interceptors.response.use(
     response => {
-        console.log(response.data);
+
         return response;
     }
 );

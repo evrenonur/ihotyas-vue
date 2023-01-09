@@ -36,15 +36,18 @@
 <script>
 
 
-import LoginService from "@/Services/LoginService";
+import {LoginService} from "@/Services/LoginService";
+
 
 export default {
   name: "LoginView",
   email: "",
   password: "",
-  methods:{
-    login(){
-      LoginService.login(this.email, this.password)
+  methods: {
+     login() {
+      const loginService = new LoginService();
+      const response = loginService.login(this.email, this.password);
+      console.log(response.status);
     }
   },
   data() {
@@ -54,8 +57,6 @@ export default {
     };
 
   },
-
-
 
 
 }
