@@ -1055,11 +1055,6 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@k90mirzaei/vue-toast@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@k90mirzaei/vue-toast/-/vue-toast-1.0.3.tgz#d08effb052106d3a4baad2c0da379bcc9b59ac88"
-  integrity sha512-XPDOV+laFopNrgf7CkIRXWUFYRJ6wW8nRK2hU6Hg5JvPXxlS7CliVk4mfTsCBzersG0km/PZ7yKZKQXyhkkNlg==
-
 "@leichtgewicht/ip-codec@^2.0.1":
   version "2.0.4"
   resolved "https://registry.npmjs.org/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz"
@@ -5884,6 +5879,11 @@ vue-template-es2015-compiler@^1.9.0:
   version "1.9.1"
   resolved "https://registry.npmjs.org/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
+
+vue-toast@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/vue-toast/-/vue-toast-3.1.0.tgz#19eb4c8150faf5c31c12f8b897a955d1ac0b5e9e"
+  integrity sha512-bDUdGVp6VVEBfWjZZhk5QF8ruk3uO5afLRLVsS7suyuPw2Pz8B6ORdDjaouQbeIvE0TQ3sZHyLzNCntJ8ZWdgQ==
 
 vue@^3.2.13:
   version "3.2.45"

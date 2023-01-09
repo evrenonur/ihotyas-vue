@@ -16,8 +16,9 @@ export class LoginService extends ILoginService {
                 "email": email,
                 "password": password
             });
+
             if (response.status === 200) {
-                return new ServiceResponse(true, "Success", response.data, response.status);
+                return new ServiceResponse(response.data.isSuccess, response.data.message, response.data.data, response.data.statusCode);
             }
             return new ServiceResponse(false, "Error", response.data, response.status);
         } catch (error) {

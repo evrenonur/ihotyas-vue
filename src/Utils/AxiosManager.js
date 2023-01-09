@@ -18,7 +18,6 @@ AxiosManager.interceptors.request.use(
 
 AxiosManager.interceptors.response.use(
     response => {
-
         return response;
     }
 );

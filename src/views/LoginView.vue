@@ -37,18 +37,37 @@
 
 
 import {LoginService} from "@/Services/LoginService";
-
+import router from "@/router";
 
 export default {
+
+
   name: "LoginView",
   email: "",
   password: "",
   methods: {
-     login() {
+    login() {
       new LoginService().login(this.email, this.password).then((response) => {
-        console.log(response.isSuccess);
+        if (response.isSuccess) {
+          iziToast.success({
+            title: 'Başarılı',
+            message: 'Giriş Başarılı',
+            onClosing: function(instance, toast, closedBy){
+              localStorage.setItem("token", response.data.token)
+              router.push({name: 'home'})
+            }
+          });
+        } else {
+          iziToast.error({
+            title: 'Hata',
+            message: 'Giriş Başarısız',
+          });
+        }
       }).catch((error) => {
-        console.log(error);
+        iziToast.error({
+          title: 'Hata',
+          message: 'Giriş Başarısız',
+        });
       })
 
     }
@@ -58,7 +77,13 @@ export default {
       email: "",
       password: "",
     };
+  },
 
+  setup() {
+    const token = localStorage.getItem("token")
+    if (token) {
+      router.push({name: 'home'})
+    }
   },
 
 
